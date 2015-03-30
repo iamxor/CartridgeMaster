@@ -9,6 +9,7 @@ using System.Data.Entity;
 
 namespace СartridgeMaster
 {
+    //git test
     public static class Runtime
     {
         public static Entities DB;
