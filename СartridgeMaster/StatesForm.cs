@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace СartridgeMaster
 {
-    //
+    //zzz
     public partial class StatesForm : Form
     {
         public StatesForm()
