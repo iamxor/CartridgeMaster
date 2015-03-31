@@ -150,6 +150,21 @@
     <Compile Include="operations.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OperationTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationTypeForm.Designer.cs">
+      <DependentUpon>OperationTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationTypesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationTypesForm.Designer.cs">
+      <DependentUpon>OperationTypesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="operation_types.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PrinterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +183,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
+    <Compile Include="StatesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatesForm.Designer.cs">
+      <DependentUpon>StatesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StateTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateTypeForm.Designer.cs">
+      <DependentUpon>StateTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="state_types.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CartridgeForm.resx">
       <DependentUpon>CartridgeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +212,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogonForm.resx">
       <DependentUpon>LogonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationTypeForm.resx">
+      <DependentUpon>OperationTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationTypesForm.resx">
+      <DependentUpon>OperationTypesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterForm.resx">
       <DependentUpon>PrinterForm.cs</DependentUpon>
@@ -199,6 +235,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StatesForm.resx">
+      <DependentUpon>StatesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateTypeForm.resx">
+      <DependentUpon>StateTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>

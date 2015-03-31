@@ -9,7 +9,9 @@
         <EntityTypeShape EntityType="Models.operations" Width="1.5" PointX="2.375" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Models.printers" Width="1.5" PointX="4" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Models.cartridges" Width="1.5" PointX="5.625" PointY="0.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="Models.operation_types" Width="1.5" PointX="7.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.state_types" Width="1.5" PointX="8.875" PointY="0.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

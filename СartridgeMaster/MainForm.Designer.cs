@@ -38,7 +38,6 @@
             this.удалитьРасположениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.label5 = new System.Windows.Forms.Label();
             this.lvPrinters = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,7 +47,10 @@
             this.cxPrinters = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьПринтерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьПринтерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lvPrinterOps = new System.Windows.Forms.ListView();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cxPrinterOps = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьОперациюСПринтеромToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьОперациюСПринтеромToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cxCartridges = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lvCartridgeOps = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,13 +69,17 @@
             this.cxCartridgeOps = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьОперациюСКартриджемToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьОперациюСКартриджемToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cxCartridges = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.добавитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvPrinterOps = new System.Windows.Forms.ListView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.статусыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типыОперацийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,8 +99,10 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.cxCartridgeOps.SuspendLayout();
             this.cxCartridges.SuspendLayout();
+            this.cxCartridgeOps.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -116,12 +125,16 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.Color.Gray;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(400, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Расположения";
+            this.label1.Text = "Расположения ▼";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tvLocations
             // 
@@ -131,9 +144,9 @@
             this.tvLocations.ContextMenuStrip = this.cxLocations;
             this.tvLocations.FullRowSelect = true;
             this.tvLocations.HideSelection = false;
-            this.tvLocations.Location = new System.Drawing.Point(3, 25);
+            this.tvLocations.Location = new System.Drawing.Point(3, 78);
             this.tvLocations.Name = "tvLocations";
-            this.tvLocations.Size = new System.Drawing.Size(400, 593);
+            this.tvLocations.Size = new System.Drawing.Size(400, 540);
             this.tvLocations.TabIndex = 1;
             this.tvLocations.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvLocations_AfterSelect);
             this.tvLocations.DoubleClick += new System.EventHandler(this.tvLocations_DoubleClick);
@@ -197,15 +210,6 @@
             this.splitContainer4.SplitterDistance = 576;
             this.splitContainer4.TabIndex = 2;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Принтеры";
-            // 
             // lvPrinters
             // 
             this.lvPrinters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -221,10 +225,10 @@
             this.lvPrinters.FullRowSelect = true;
             this.lvPrinters.GridLines = true;
             this.lvPrinters.HideSelection = false;
-            this.lvPrinters.Location = new System.Drawing.Point(6, 25);
+            this.lvPrinters.Location = new System.Drawing.Point(3, 78);
             this.lvPrinters.Name = "lvPrinters";
             this.lvPrinters.ShowGroups = false;
-            this.lvPrinters.Size = new System.Drawing.Size(567, 244);
+            this.lvPrinters.Size = new System.Drawing.Size(570, 191);
             this.lvPrinters.TabIndex = 1;
             this.lvPrinters.UseCompatibleStateImageBehavior = false;
             this.lvPrinters.View = System.Windows.Forms.View.Details;
@@ -278,14 +282,42 @@
             this.удалитьПринтерToolStripMenuItem.Text = "Удалить принтер";
             this.удалитьПринтерToolStripMenuItem.Click += new System.EventHandler(this.удалитьПринтерToolStripMenuItem_Click);
             // 
-            // label4
+            // lvPrinterOps
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Операции с принтерами";
+            this.lvPrinterOps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvPrinterOps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader13});
+            this.lvPrinterOps.ContextMenuStrip = this.cxPrinterOps;
+            this.lvPrinterOps.FullRowSelect = true;
+            this.lvPrinterOps.GridLines = true;
+            this.lvPrinterOps.HideSelection = false;
+            this.lvPrinterOps.Location = new System.Drawing.Point(3, 78);
+            this.lvPrinterOps.Name = "lvPrinterOps";
+            this.lvPrinterOps.ShowGroups = false;
+            this.lvPrinterOps.Size = new System.Drawing.Size(366, 191);
+            this.lvPrinterOps.TabIndex = 2;
+            this.lvPrinterOps.UseCompatibleStateImageBehavior = false;
+            this.lvPrinterOps.View = System.Windows.Forms.View.Details;
+            this.lvPrinterOps.DoubleClick += new System.EventHandler(this.lvPrinterOps_DoubleClick);
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Дата";
+            this.columnHeader8.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Операция";
+            this.columnHeader9.Width = 100;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Примечание";
+            this.columnHeader13.Width = 100;
             // 
             // cxPrinterOps
             // 
@@ -317,8 +349,8 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.lvCartridges);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
+            this.splitContainer3.Panel1.Controls.Add(this.lvCartridges);
             // 
             // splitContainer3.Panel2
             // 
@@ -341,10 +373,10 @@
             this.lvCartridges.FullRowSelect = true;
             this.lvCartridges.GridLines = true;
             this.lvCartridges.HideSelection = false;
-            this.lvCartridges.Location = new System.Drawing.Point(3, 16);
+            this.lvCartridges.Location = new System.Drawing.Point(3, 29);
             this.lvCartridges.Name = "lvCartridges";
             this.lvCartridges.ShowGroups = false;
-            this.lvCartridges.Size = new System.Drawing.Size(388, 326);
+            this.lvCartridges.Size = new System.Drawing.Size(388, 313);
             this.lvCartridges.TabIndex = 1;
             this.lvCartridges.UseCompatibleStateImageBehavior = false;
             this.lvCartridges.View = System.Windows.Forms.View.Details;
@@ -365,23 +397,26 @@
             this.columnHeader7.Text = "Статус";
             this.columnHeader7.Width = 100;
             // 
-            // label3
+            // cxCartridges
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Картриджи";
+            this.cxCartridges.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьКартриджToolStripMenuItem,
+            this.удалитьКартриджToolStripMenuItem});
+            this.cxCartridges.Name = "cxCartridges";
+            this.cxCartridges.Size = new System.Drawing.Size(183, 48);
             // 
-            // label2
+            // добавитьКартриджToolStripMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Операции с картриджами";
+            this.добавитьКартриджToolStripMenuItem.Name = "добавитьКартриджToolStripMenuItem";
+            this.добавитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.добавитьКартриджToolStripMenuItem.Text = "Добавить картридж";
+            this.добавитьКартриджToolStripMenuItem.Click += new System.EventHandler(this.добавитьКартриджToolStripMenuItem_Click);
+            // 
+            // удалитьКартриджToolStripMenuItem
+            // 
+            this.удалитьКартриджToolStripMenuItem.Name = "удалитьКартриджToolStripMenuItem";
+            this.удалитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.удалитьКартриджToolStripMenuItem.Text = "Удалить картридж";
             // 
             // lvCartridgeOps
             // 
@@ -396,10 +431,10 @@
             this.lvCartridgeOps.FullRowSelect = true;
             this.lvCartridgeOps.GridLines = true;
             this.lvCartridgeOps.HideSelection = false;
-            this.lvCartridgeOps.Location = new System.Drawing.Point(3, 16);
+            this.lvCartridgeOps.Location = new System.Drawing.Point(3, 29);
             this.lvCartridgeOps.Name = "lvCartridgeOps";
             this.lvCartridgeOps.ShowGroups = false;
-            this.lvCartridgeOps.Size = new System.Drawing.Size(548, 326);
+            this.lvCartridgeOps.Size = new System.Drawing.Size(548, 313);
             this.lvCartridgeOps.TabIndex = 3;
             this.lvCartridgeOps.UseCompatibleStateImageBehavior = false;
             this.lvCartridgeOps.View = System.Windows.Forms.View.Details;
@@ -441,76 +476,126 @@
             this.удалитьОперациюСКартриджемToolStripMenuItem.Text = "Удалить операцию с картриджем";
             this.удалитьОперациюСКартриджемToolStripMenuItem.Click += new System.EventHandler(this.удалитьОперациюСКартриджемToolStripMenuItem_Click);
             // 
-            // cxCartridges
+            // menuStrip1
             // 
-            this.cxCartridges.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьКартриджToolStripMenuItem,
-            this.удалитьКартриджToolStripMenuItem});
-            this.cxCartridges.Name = "cxCartridges";
-            this.cxCartridges.Size = new System.Drawing.Size(183, 48);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справочникиToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // добавитьКартриджToolStripMenuItem
+            // справочникиToolStripMenuItem
             // 
-            this.добавитьКартриджToolStripMenuItem.Name = "добавитьКартриджToolStripMenuItem";
-            this.добавитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.добавитьКартриджToolStripMenuItem.Text = "Добавить картридж";
-            this.добавитьКартриджToolStripMenuItem.Click += new System.EventHandler(this.добавитьКартриджToolStripMenuItem_Click);
+            this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.статусыToolStripMenuItem,
+            this.типыОперацийToolStripMenuItem});
+            this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
+            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.справочникиToolStripMenuItem.Text = "Справочники";
             // 
-            // удалитьКартриджToolStripMenuItem
+            // label5
             // 
-            this.удалитьКартриджToolStripMenuItem.Name = "удалитьКартриджToolStripMenuItem";
-            this.удалитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.удалитьКартриджToolStripMenuItem.Text = "Удалить картридж";
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Дата";
-            this.columnHeader8.Width = 100;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Операция";
-            this.columnHeader9.Width = 100;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Примечание";
-            this.columnHeader13.Width = 100;
-            // 
-            // lvPrinterOps
-            // 
-            this.lvPrinterOps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvPrinterOps.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader13});
-            this.lvPrinterOps.ContextMenuStrip = this.cxPrinterOps;
-            this.lvPrinterOps.FullRowSelect = true;
-            this.lvPrinterOps.GridLines = true;
-            this.lvPrinterOps.HideSelection = false;
-            this.lvPrinterOps.Location = new System.Drawing.Point(3, 25);
-            this.lvPrinterOps.Name = "lvPrinterOps";
-            this.lvPrinterOps.ShowGroups = false;
-            this.lvPrinterOps.Size = new System.Drawing.Size(366, 244);
-            this.lvPrinterOps.TabIndex = 2;
-            this.lvPrinterOps.UseCompatibleStateImageBehavior = false;
-            this.lvPrinterOps.View = System.Windows.Forms.View.Details;
-            this.lvPrinterOps.DoubleClick += new System.EventHandler(this.lvPrinterOps_DoubleClick);
+            this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(570, 26);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Принтеры ▼";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.BackColor = System.Drawing.Color.Gray;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(366, 26);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Операции с принтерами ▼";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(388, 26);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Картриджи ▼";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.Gray;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(548, 26);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Операции с картриджами ▼";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripTextBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1362, 25);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Поиск";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(150, 25);
+            // 
+            // статусыToolStripMenuItem
+            // 
+            this.статусыToolStripMenuItem.Name = "статусыToolStripMenuItem";
+            this.статусыToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.статусыToolStripMenuItem.Text = "Статусы";
+            this.статусыToolStripMenuItem.Click += new System.EventHandler(this.статусыToolStripMenuItem_Click);
+            // 
+            // типыОперацийToolStripMenuItem
+            // 
+            this.типыОперацийToolStripMenuItem.Name = "типыОперацийToolStripMenuItem";
+            this.типыОперацийToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.типыОперацийToolStripMenuItem.Text = "Типы операций";
+            this.типыОперацийToolStripMenuItem.Click += new System.EventHandler(this.типыОперацийToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 621);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Картридж-Мастер";
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -520,22 +605,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.cxPrinters.ResumeLayout(false);
             this.cxPrinterOps.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.cxCartridgeOps.ResumeLayout(false);
             this.cxCartridges.ResumeLayout(false);
+            this.cxCartridgeOps.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -558,7 +644,6 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьПринтерToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListView lvCartridges;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
@@ -567,9 +652,6 @@
         private System.Windows.Forms.ListView lvCartridgeOps;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip cxPrinterOps;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ContextMenuStrip cxCartridgeOps;
@@ -584,6 +666,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem статусыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типыОперацийToolStripMenuItem;
     }
 }
 

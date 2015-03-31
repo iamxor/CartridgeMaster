@@ -23,6 +23,15 @@
           <Property Name="parent_id" Type="guid" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="operation_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="guid" Nullable="false" />
+          <Property Name="object_type" Type="int" />
+          <Property Name="operation_value" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="1024" />
+        </EntityType>
         <EntityType Name="operations">
           <Key>
             <PropertyRef Name="id" />
@@ -45,11 +54,22 @@
           <Property Name="number" Type="varchar" MaxLength="255" />
           <Property Name="state" Type="int" />
         </EntityType>
+        <EntityType Name="state_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="guid" Nullable="false" />
+          <Property Name="object_type" Type="int" />
+          <Property Name="state_value" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="1024" />
+        </EntityType>
         <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="cartridges" EntityType="Self.cartridges" Schema="cartridge_master" store:Type="Tables" />
           <EntitySet Name="locations" EntityType="Self.locations" Schema="cartridge_master" store:Type="Tables" />
+          <EntitySet Name="operation_types" EntityType="Self.operation_types" Schema="cartridge_master" store:Type="Tables" />
           <EntitySet Name="operations" EntityType="Self.operations" Schema="cartridge_master" store:Type="Tables" />
           <EntitySet Name="printers" EntityType="Self.printers" Schema="cartridge_master" store:Type="Tables" />
+          <EntitySet Name="state_types" EntityType="Self.state_types" Schema="cartridge_master" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -90,7 +110,9 @@
           <EntitySet Name="operations" EntityType="Self.operations" />
           <EntitySet Name="printers" EntityType="Self.printers" />
           <EntitySet Name="cartridges" EntityType="Models.cartridges" />
-        </EntityContainer>
+          <EntitySet Name="operation_types" EntityType="Models.operation_types" />
+          <EntitySet Name="state_types" EntityType="Models.state_types" />
+          </EntityContainer>
         <EntityType Name="cartridges">
           <Key>
             <PropertyRef Name="id" />
@@ -101,7 +123,25 @@
           <Property Name="model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="state" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="operation_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="object_type" Type="Int32" />
+          <Property Name="operation_value" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="state_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="object_type" Type="Int32" />
+          <Property Name="state_value" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -151,7 +191,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="operation_types">
+            <EntityTypeMapping TypeName="Models.operation_types">
+              <MappingFragment StoreEntitySet="operation_types">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="operation_value" ColumnName="operation_value" />
+                <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="state_types">
+            <EntityTypeMapping TypeName="Models.state_types">
+              <MappingFragment StoreEntitySet="state_types">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="state_value" ColumnName="state_value" />
+                <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

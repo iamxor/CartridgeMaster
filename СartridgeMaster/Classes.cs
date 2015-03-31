@@ -57,4 +57,24 @@ namespace СartridgeMaster
         [DisplayName("Примечание"), Description(""), Category("")]
         public string notes { get; set; }
     }
+
+    public class StateTypeDetails
+    {
+        [DisplayName("Тип объекта"), Description(""), Category("")]
+        public int object_type { get; set; }
+        [DisplayName("Код"), Description(""), Category("")]
+        public int state_value { get; set; }
+        [DisplayName("Наименование"), Description(""), Category("")]
+        public string name { get; set; }
+    }
+
+    public class OperationTypeDetails
+    {
+        [DisplayName("Тип объекта"), Description(""), Category("")]
+        public int object_type { get; set; }
+        [DisplayName("Код"), Description(""), Category("")]
+        public int operation_value { get; set; }
+        [DisplayName("Наименование"), Description(""), Category("")]
+        public string name { get; set; }
+    }
 }

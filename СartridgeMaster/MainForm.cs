@@ -305,5 +305,17 @@ namespace СartridgeMaster
             FillCartridgeOperations();
         }
 
+        private void статусыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StatesForm frm = new StatesForm();
+            frm.ShowDialog();
+        }
+
+        private void типыОперацийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperationTypesForm frm = new OperationTypesForm();
+            frm.ShowDialog();
+        }
+
     }
 }

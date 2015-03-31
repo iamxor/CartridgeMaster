@@ -29,5 +29,7 @@ namespace СartridgeMaster
         public virtual DbSet<operations> operations { get; set; }
         public virtual DbSet<printers> printers { get; set; }
         public virtual DbSet<cartridges> cartridges { get; set; }
+        public virtual DbSet<operation_types> operation_types { get; set; }
+        public virtual DbSet<state_types> state_types { get; set; }
     }
 }
