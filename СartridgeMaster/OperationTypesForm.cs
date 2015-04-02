@@ -43,6 +43,7 @@ namespace СartridgeMaster
             ot.object_type = 0;
             ot.operation_value = 0;
             ot.name = "";
+            ot.state = Guid.Empty;
             OperationTypeForm frm = new OperationTypeForm(true, ot);
             frm.ShowDialog();
             FillOperationTypes();

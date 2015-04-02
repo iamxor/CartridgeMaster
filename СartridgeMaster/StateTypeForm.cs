@@ -35,7 +35,7 @@ namespace СartridgeMaster
             }
 
             _std = new StateTypeDetails();
-            _std.object_type = _st.object_type.Value;
+            _std.object_type = (ObjectType)_st.object_type.Value;
             _std.state_value = _st.state_value.Value;
             _std.name = _st.name;
 
@@ -44,7 +44,7 @@ namespace СartridgeMaster
 
         private void btCmd_Click(object sender, EventArgs e)
         {
-            _st.object_type = _std.object_type;
+            _st.object_type = (int)_std.object_type;
             _st.state_value = _std.state_value;
             _st.name = _std.name;
             if (_isnew)

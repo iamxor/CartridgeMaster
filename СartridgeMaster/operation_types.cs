@@ -18,5 +18,6 @@ namespace СartridgeMaster
         public Nullable<int> object_type { get; set; }
         public Nullable<int> operation_value { get; set; }
         public string name { get; set; }
+        public Nullable<System.Guid> state { get; set; }
     }
 }

@@ -183,6 +183,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
+    <Compile Include="StateSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StateSelect.Designer.cs">
+      <DependentUpon>StateSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StateSelect.resx">
+      <DependentUpon>StateSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StatesForm.resx">
       <DependentUpon>StatesForm.cs</DependentUpon>
     </EmbeddedResource>

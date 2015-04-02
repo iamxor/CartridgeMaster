@@ -31,6 +31,7 @@
           <Property Name="object_type" Type="int" />
           <Property Name="operation_value" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="1024" />
+          <Property Name="state" Type="guid" />
         </EntityType>
         <EntityType Name="operations">
           <Key>
@@ -75,6 +76,24 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cartridges" EntityType="Models.cartridges" />
+          <EntitySet Name="locations" EntityType="Models.locations" />
+          <EntitySet Name="operation_types" EntityType="Models.operation_types" />
+          <EntitySet Name="operations" EntityType="Models.operations" />
+          <EntitySet Name="printers" EntityType="Models.printers" />
+          <EntitySet Name="state_types" EntityType="Models.state_types" />
+        </EntityContainer>
+        <EntityType Name="cartridges">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="printer_id" Type="Guid" />
+          <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
         <EntityType Name="locations">
           <Key>
             <PropertyRef Name="id" />
@@ -82,6 +101,16 @@
           <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="parent_id" Type="Guid" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="operation_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="object_type" Type="Int32" />
+          <Property Name="operation_value" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Guid" />
         </EntityType>
         <EntityType Name="operations">
           <Key>
@@ -105,33 +134,6 @@
           <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="state" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="locations" EntityType="Self.locations" />
-          <EntitySet Name="operations" EntityType="Self.operations" />
-          <EntitySet Name="printers" EntityType="Self.printers" />
-          <EntitySet Name="cartridges" EntityType="Models.cartridges" />
-          <EntitySet Name="operation_types" EntityType="Models.operation_types" />
-          <EntitySet Name="state_types" EntityType="Models.state_types" />
-          </EntityContainer>
-        <EntityType Name="cartridges">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="printer_id" Type="Guid" />
-          <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="Int32" />
-        </EntityType>
-        <EntityType Name="operation_types">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="object_type" Type="Int32" />
-          <Property Name="operation_value" Type="Int32" />
-          <Property Name="name" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="state_types">
           <Key>
             <PropertyRef Name="id" />
@@ -147,39 +149,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="locations">
-            <EntityTypeMapping TypeName="Models.locations">
-              <MappingFragment StoreEntitySet="locations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="operations">
-            <EntityTypeMapping TypeName="Models.operations">
-              <MappingFragment StoreEntitySet="operations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="object_id" ColumnName="object_id" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="operation" ColumnName="operation" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="printers">
-            <EntityTypeMapping TypeName="Models.printers">
-              <MappingFragment StoreEntitySet="printers">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="location_id" ColumnName="location_id" />
-                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="pages_count" ColumnName="pages_count" />
-                <ScalarProperty Name="number" ColumnName="number" />
-                <ScalarProperty Name="state" ColumnName="state" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="cartridges">
             <EntityTypeMapping TypeName="Models.cartridges">
               <MappingFragment StoreEntitySet="cartridges">
@@ -191,12 +160,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="Models.locations">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="operation_types">
             <EntityTypeMapping TypeName="Models.operation_types">
               <MappingFragment StoreEntitySet="operation_types">
+                <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="operation_value" ColumnName="operation_value" />
                 <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operations">
+            <EntityTypeMapping TypeName="Models.operations">
+              <MappingFragment StoreEntitySet="operations">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="operation" ColumnName="operation" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="object_id" ColumnName="object_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="printers">
+            <EntityTypeMapping TypeName="Models.printers">
+              <MappingFragment StoreEntitySet="printers">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="pages_count" ColumnName="pages_count" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -211,7 +214,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

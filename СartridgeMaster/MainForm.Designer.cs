@@ -38,6 +38,7 @@
             this.удалитьРасположениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.label5 = new System.Windows.Forms.Label();
             this.lvPrinters = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,6 +48,7 @@
             this.cxPrinters = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьПринтерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьПринтерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
             this.lvPrinterOps = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,6 +57,7 @@
             this.добавитьОперациюСПринтеромToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьОперациюСПринтеромToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.label3 = new System.Windows.Forms.Label();
             this.lvCartridges = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,6 +65,7 @@
             this.cxCartridges = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьКартриджToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
             this.lvCartridgeOps = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,15 +75,11 @@
             this.удалитьОперациюСКартриджемToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.статусыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типыОперацийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.статусыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.типыОперацийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -210,6 +210,19 @@
             this.splitContainer4.SplitterDistance = 576;
             this.splitContainer4.TabIndex = 2;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(570, 26);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Принтеры ▼";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lvPrinters
             // 
             this.lvPrinters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -281,6 +294,19 @@
             this.удалитьПринтерToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.удалитьПринтерToolStripMenuItem.Text = "Удалить принтер";
             this.удалитьПринтерToolStripMenuItem.Click += new System.EventHandler(this.удалитьПринтерToolStripMenuItem_Click);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.BackColor = System.Drawing.Color.Gray;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(366, 26);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Операции с принтерами ▼";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvPrinterOps
             // 
@@ -360,6 +386,19 @@
             this.splitContainer3.SplitterDistance = 394;
             this.splitContainer3.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(388, 26);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Картриджи ▼";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lvCartridges
             // 
             this.lvCartridges.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -418,6 +457,19 @@
             this.удалитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.удалитьКартриджToolStripMenuItem.Text = "Удалить картридж";
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.Gray;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(548, 26);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Операции с картриджами ▼";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lvCartridgeOps
             // 
             this.lvCartridgeOps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -438,6 +490,7 @@
             this.lvCartridgeOps.TabIndex = 3;
             this.lvCartridgeOps.UseCompatibleStateImageBehavior = false;
             this.lvCartridgeOps.View = System.Windows.Forms.View.Details;
+            this.lvCartridgeOps.DoubleClick += new System.EventHandler(this.lvCartridgeOps_DoubleClick);
             // 
             // columnHeader10
             // 
@@ -495,57 +548,19 @@
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
             // 
-            // label5
+            // статусыToolStripMenuItem
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.BackColor = System.Drawing.Color.Gray;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(570, 26);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Принтеры ▼";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.статусыToolStripMenuItem.Name = "статусыToolStripMenuItem";
+            this.статусыToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.статусыToolStripMenuItem.Text = "Статусы";
+            this.статусыToolStripMenuItem.Click += new System.EventHandler(this.статусыToolStripMenuItem_Click);
             // 
-            // label4
+            // типыОперацийToolStripMenuItem
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.BackColor = System.Drawing.Color.Gray;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(366, 26);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Операции с принтерами ▼";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.BackColor = System.Drawing.Color.Gray;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(388, 26);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Картриджи ▼";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Gray;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(548, 26);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Операции с картриджами ▼";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.типыОперацийToolStripMenuItem.Name = "типыОперацийToolStripMenuItem";
+            this.типыОперацийToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.типыОперацийToolStripMenuItem.Text = "Типы операций";
+            this.типыОперацийToolStripMenuItem.Click += new System.EventHandler(this.типыОперацийToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -568,20 +583,6 @@
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(150, 25);
-            // 
-            // статусыToolStripMenuItem
-            // 
-            this.статусыToolStripMenuItem.Name = "статусыToolStripMenuItem";
-            this.статусыToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.статусыToolStripMenuItem.Text = "Статусы";
-            this.статусыToolStripMenuItem.Click += new System.EventHandler(this.статусыToolStripMenuItem_Click);
-            // 
-            // типыОперацийToolStripMenuItem
-            // 
-            this.типыОперацийToolStripMenuItem.Name = "типыОперацийToolStripMenuItem";
-            this.типыОперацийToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.типыОперацийToolStripMenuItem.Text = "Типы операций";
-            this.типыОперацийToolStripMenuItem.Click += new System.EventHandler(this.типыОперацийToolStripMenuItem_Click);
             // 
             // MainForm
             // 

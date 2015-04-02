@@ -317,5 +317,16 @@ namespace СartridgeMaster
             frm.ShowDialog();
         }
 
+        private void lvCartridgeOps_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvCartridgeOps.SelectedItems.Count > 0)
+            {
+                operations op = lvCartridgeOps.SelectedItems[0].Tag as operations;
+                CartridgeOperationForm frm = new CartridgeOperationForm(false, op);
+                frm.ShowDialog();
+                FillCartridgeOperations();
+            }
+        }
+
     }
 }
