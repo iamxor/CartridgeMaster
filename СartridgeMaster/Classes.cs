@@ -128,8 +128,32 @@ namespace СartridgeMaster
         public int operation_value { get; set; }
         [DisplayName("Наименование"), Description("Наименование операции"), Category("")]
         public string name { get; set; }
-        [DisplayName("Статус"), Description("Статус вызванный операцией"), Category(""), Editor(typeof(StateEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [DisplayName("Статус"), Description("Статус вызванный операцией"), Category(""), TypeConverter(typeof(StateTypeConverter)), Editor(typeof(StateEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public Guid state { get; set; }
+    }
+
+    public class StateTypeConverter: TypeConverter
+    {
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return false;
+        }
+
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+        {
+            if (destinationType == typeof(string))
+            {
+                Guid id = (Guid)value;
+                if (id != Guid.Empty)
+                {
+                    state_types st = Runtime.DB.state_types.SingleOrDefault(x => x.id == id);
+                    if (st != null)
+                        return st.name;
+                }
+                return "";
+            }
+            return "";
+        }
     }
 
     public class StateEditor : UITypeEditor
@@ -144,18 +168,22 @@ namespace СartridgeMaster
         {
             svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
             if (svc != null)
-            {
-                StateSelect frm = new StateSelect();
-                frm.ValueSelected +=frm_ValueSelected;
+            {                
+                StateSelect frm = new StateSelect(context.Instance);
+                frm.ValueSelected += frm_ValueSelected;
                 svc.DropDownControl(frm);
-                value = Guid.NewGuid();
+                if (frm.Selected != null)
+                    value = frm.Selected.id;
+                else
+                    value = Guid.Empty;
             }
             return value;
         }
 
         void frm_ValueSelected(object sender, EventArgs e)
         {
-            svc.CloseDropDown();
+            if(svc != null)
+                svc.CloseDropDown();
         }
     }
 }
