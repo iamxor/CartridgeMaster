@@ -61,8 +61,12 @@ namespace СartridgeMaster
             if (lvOperationTypes.SelectedItems.Count > 0)
             {
                 operation_types ot = lvOperationTypes.SelectedItems[0].Tag as operation_types;
-                OperationTypeForm frm = new OperationTypeForm(false, ot);
-                frm.ShowDialog();
+                if (MessageBox.Show("Удалить тип операции?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Runtime.DB.operation_types.Remove(ot);
+                    Runtime.DB.SaveChanges();
+                    FillOperationTypes();
+                }     
                 FillOperationTypes();
             }
         }

@@ -37,6 +37,13 @@ namespace СartridgeMaster
         public void FillPrinters()
         {
             List<state_types> stypes = Runtime.DB.state_types.ToList();
+            
+            printers p = null;
+            if(lvPrinters.SelectedItems.Count > 0)
+            {
+                p = lvPrinters.SelectedItems[0].Tag as printers;
+            }
+
             lvPrinters.BeginUpdate();
             lvPrinters.Items.Clear();
             if (tvLocations.SelectedNode != null)
@@ -59,10 +66,28 @@ namespace СartridgeMaster
                 }                
             }
             lvPrinters.EndUpdate();
+
+            if(p != null)
+            {
+                foreach (ListViewItem lvitem in lvPrinters.Items)
+                {
+                    printers cp = lvitem.Tag as printers;
+                    if (cp.id == p.id)
+                    {
+                        lvitem.Selected = true;
+                    }
+                }
+            }
         }
 
         public void FillCartridges()
         {
+            cartridges c = null;
+            if (lvCartridges.SelectedItems.Count > 0)
+            {
+                c = lvCartridges.SelectedItems[0].Tag as cartridges;
+            }
+
             List<state_types> stypes = Runtime.DB.state_types.ToList();
             lvCartridges.BeginUpdate();
             lvCartridges.Items.Clear();
@@ -74,7 +99,7 @@ namespace СartridgeMaster
                     ListViewItem item = new ListViewItem();
                     item.Text = cr.number;
                     item.SubItems.Add(cr.model);
-                    state_types st = stypes.SingleOrDefault(x => x.id == pr.state.Value);
+                    state_types st = stypes.SingleOrDefault(x => x.id == cr.state.Value);
                     string st_str = "";
                     if (st != null)
                         st_str = st.name;
@@ -84,6 +109,18 @@ namespace СartridgeMaster
                 }                
             }
             lvCartridges.EndUpdate();
+
+            if (c != null)
+            {
+                foreach (ListViewItem lvitem in lvCartridges.Items)
+                {
+                    cartridges cc = lvitem.Tag as cartridges;
+                    if (cc.id == c.id)
+                    {
+                        lvitem.Selected = true;
+                    }
+                }
+            }
         }
 
         public void FillCartridgeOperations()
@@ -236,6 +273,19 @@ namespace СartridgeMaster
                 op.notes = "";
                 PrinterOperationForm frm = new PrinterOperationForm(true, op);
                 frm.ShowDialog();
+                if (op.operation.Value != Guid.Empty)
+                {
+                    operation_types ot = Runtime.DB.operation_types.SingleOrDefault(x => x.id == op.operation.Value);
+                    if(ot != null)
+                    {
+                        if(ot.state.Value != Guid.Empty)
+                        {
+                            pr.state = ot.state.Value;
+                            Runtime.DB.SaveChanges();
+                            FillPrinters();
+                        }
+                    }
+                }
                 FillPrinterOperations();
             }
         }
@@ -251,9 +301,23 @@ namespace СartridgeMaster
         {
             if(lvPrinterOps.SelectedItems.Count > 0)
             {
+                printers pr = lvPrinters.SelectedItems[0].Tag as printers;
                 operations op = lvPrinterOps.SelectedItems[0].Tag as operations;
                 PrinterOperationForm frm = new PrinterOperationForm(false, op);
                 frm.ShowDialog();
+                if (op.operation.Value != Guid.Empty)
+                {
+                    operation_types ot = Runtime.DB.operation_types.SingleOrDefault(x => x.id == op.operation.Value);
+                    if (ot != null)
+                    {
+                        if (ot.state.Value != Guid.Empty)
+                        {
+                            pr.state = ot.state.Value;
+                            Runtime.DB.SaveChanges();
+                            FillPrinters();
+                        }
+                    }
+                }
                 FillPrinterOperations();
             }
         }
@@ -316,6 +380,19 @@ namespace СartridgeMaster
                 op.notes = "";
                 CartridgeOperationForm frm = new CartridgeOperationForm(true, op);
                 frm.ShowDialog();
+                if (op.operation.Value != Guid.Empty)
+                {
+                    operation_types ot = Runtime.DB.operation_types.SingleOrDefault(x => x.id == op.operation.Value);
+                    if (ot != null)
+                    {
+                        if (ot.state.Value != Guid.Empty)
+                        {
+                            cr.state = ot.state.Value;
+                            Runtime.DB.SaveChanges();
+                            FillCartridges();
+                        }
+                    }
+                }
                 FillCartridgeOperations();
             }
         }
@@ -341,10 +418,49 @@ namespace СartridgeMaster
         {
             if (lvCartridgeOps.SelectedItems.Count > 0)
             {
+                cartridges cr = lvCartridges.SelectedItems[0].Tag as cartridges;
                 operations op = lvCartridgeOps.SelectedItems[0].Tag as operations;
                 CartridgeOperationForm frm = new CartridgeOperationForm(false, op);
                 frm.ShowDialog();
+                if (op.operation.Value != Guid.Empty)
+                {
+                    operation_types ot = Runtime.DB.operation_types.SingleOrDefault(x => x.id == op.operation.Value);
+                    if (ot != null)
+                    {
+                        if (ot.state.Value != Guid.Empty)
+                        {
+                            cr.state = ot.state.Value;
+                            Runtime.DB.SaveChanges();
+                            FillCartridges();
+                        }
+                    }
+                }
                 FillCartridgeOperations();
+            }
+        }
+
+        private void lvCartridges_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvCartridges.SelectedItems.Count > 0)
+            {
+                cartridges cr = lvCartridges.SelectedItems[0].Tag as cartridges;
+                CartridgeForm frm = new CartridgeForm(false, cr);
+                frm.ShowDialog();
+                FillCartridges();
+            }
+        }
+
+        private void удалитьКартриджToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvCartridges.SelectedItems.Count > 0)
+            {
+                cartridges cr = lvCartridges.SelectedItems[0].Tag as cartridges;
+                if (MessageBox.Show("Удалить картридж?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Runtime.DB.cartridges.Remove(cr);
+                    Runtime.DB.SaveChanges();
+                    FillCartridges();
+                }
             }
         }
 

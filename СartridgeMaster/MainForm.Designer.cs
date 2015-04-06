@@ -338,7 +338,7 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "Операция";
-            this.columnHeader9.Width = 150;
+            this.columnHeader9.Width = 170;
             // 
             // columnHeader13
             // 
@@ -420,6 +420,7 @@
             this.lvCartridges.UseCompatibleStateImageBehavior = false;
             this.lvCartridges.View = System.Windows.Forms.View.Details;
             this.lvCartridges.SelectedIndexChanged += new System.EventHandler(this.lvCartridges_SelectedIndexChanged);
+            this.lvCartridges.DoubleClick += new System.EventHandler(this.lvCartridges_DoubleClick);
             // 
             // columnHeader5
             // 
@@ -456,6 +457,7 @@
             this.удалитьКартриджToolStripMenuItem.Name = "удалитьКартриджToolStripMenuItem";
             this.удалитьКартриджToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.удалитьКартриджToolStripMenuItem.Text = "Удалить картридж";
+            this.удалитьКартриджToolStripMenuItem.Click += new System.EventHandler(this.удалитьКартриджToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -500,7 +502,7 @@
             // columnHeader11
             // 
             this.columnHeader11.Text = "Операция";
-            this.columnHeader11.Width = 150;
+            this.columnHeader11.Width = 170;
             // 
             // columnHeader14
             // 
