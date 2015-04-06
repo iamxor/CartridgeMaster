@@ -13,7 +13,7 @@
           <Property Name="printer_id" Type="guid" />
           <Property Name="number" Type="varchar" MaxLength="255" />
           <Property Name="model" Type="varchar" MaxLength="255" />
-          <Property Name="state" Type="int" />
+          <Property Name="state" Type="guid" />
         </EntityType>
         <EntityType Name="locations">
           <Key>
@@ -40,7 +40,7 @@
           <Property Name="id" Type="guid" Nullable="false" />
           <Property Name="object_id" Type="guid" />
           <Property Name="datetime" Type="datetime" Precision="0" />
-          <Property Name="operation" Type="int" />
+          <Property Name="operation" Type="guid" />
           <Property Name="notes" Type="varchar" MaxLength="1024" />
         </EntityType>
         <EntityType Name="printers">
@@ -53,7 +53,7 @@
           <Property Name="model" Type="varchar" MaxLength="255" />
           <Property Name="pages_count" Type="int" />
           <Property Name="number" Type="varchar" MaxLength="255" />
-          <Property Name="state" Type="int" />
+          <Property Name="state" Type="guid" />
         </EntityType>
         <EntityType Name="state_types">
           <Key>
@@ -92,7 +92,7 @@
           <Property Name="printer_id" Type="Guid" />
           <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="Int32" />
+          <Property Name="state" Type="Guid" />
         </EntityType>
         <EntityType Name="locations">
           <Key>
@@ -119,7 +119,7 @@
           <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="object_id" Type="Guid" />
           <Property Name="datetime" Type="DateTime" />
-          <Property Name="operation" Type="Int32" />
+          <Property Name="operation" Type="Guid" />
           <Property Name="notes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="printers">
@@ -132,7 +132,7 @@
           <Property Name="model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="pages_count" Type="Int32" />
           <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="Int32" />
+          <Property Name="state" Type="Guid" />
         </EntityType>
         <EntityType Name="state_types">
           <Key>

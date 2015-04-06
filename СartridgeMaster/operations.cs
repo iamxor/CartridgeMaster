@@ -17,7 +17,7 @@ namespace СartridgeMaster
         public System.Guid id { get; set; }
         public Nullable<System.Guid> object_id { get; set; }
         public Nullable<System.DateTime> datetime { get; set; }
-        public Nullable<int> operation { get; set; }
+        public Nullable<System.Guid> operation { get; set; }
         public string notes { get; set; }
     }
 }

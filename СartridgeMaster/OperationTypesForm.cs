@@ -21,6 +21,8 @@ namespace СartridgeMaster
         {
             if (tvObjectType.SelectedNode != null)
             {
+                List<state_types> states = Runtime.DB.state_types.ToList();
+
                 lvOperationTypes.BeginUpdate();
                 lvOperationTypes.Items.Clear();
                 int object_type = int.Parse(tvObjectType.SelectedNode.Tag.ToString());
@@ -29,6 +31,11 @@ namespace СartridgeMaster
                     ListViewItem item = new ListViewItem();
                     item.Text = ot.operation_value.Value.ToString();
                     item.SubItems.Add(ot.name);
+
+                    state_types st = states.SingleOrDefault(x => x.id == ot.state.Value);
+                    if(st != null)
+                        item.SubItems.Add(st.name);
+
                     item.Tag = ot;
                     lvOperationTypes.Items.Add(item);
                 }

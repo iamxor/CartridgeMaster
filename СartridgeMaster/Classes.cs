@@ -76,16 +76,16 @@ namespace СartridgeMaster
         public string number { get; set; }
         [DisplayName("Количество страниц"), Description("Количество отпечатанных страниц"), Category("")]
         public int pages_count { get; set; }
-        [DisplayName("Статус"), Description("Статус принтера"), Category("")]
-        public int state { get; set; }
+        [DisplayName("Статус"), Description("Статус принтера"), Category(""), TypeConverter(typeof(StateTypeConverter)), Editor(typeof(PrinterStateEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Guid state { get; set; }
     }
 
     public class PrinterOperationDetails
     {
         [DisplayName("Дата"), Description(""), Category("")]
         public DateTime datetime { get; set; }
-        [DisplayName("Операция"), Description(""), Category("")]
-        public int operation { get; set; }
+        [DisplayName("Операция"), Description(""), Category(""), TypeConverter(typeof(OperationTypeConverter)), Editor(typeof(PrinterOperationTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Guid operation { get; set; }
         [DisplayName("Примечание"), Description(""), Category("")]
         public string notes { get; set; }
     }
@@ -96,16 +96,16 @@ namespace СartridgeMaster
         public string number { get; set; }
         [DisplayName("Модель"), Description(""), Category("")]
         public string model { get; set; }
-        [DisplayName("Статус"), Description(""), Category("")]
-        public int state { get; set; }
+        [DisplayName("Статус"), Description(""), Category(""), TypeConverter(typeof(StateTypeConverter)), Editor(typeof(CartridgeStateEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Guid state { get; set; }
     }
 
     public class CartridgeOperationDetails
     {
         [DisplayName("Дата"), Description(""), Category("")]
         public DateTime datetime { get; set; }
-        [DisplayName("Операция"), Description(""), Category("")]
-        public int operation { get; set; }
+        [DisplayName("Операция"), Description(""), Category(""), TypeConverter(typeof(OperationTypeConverter)), Editor(typeof(CartridgeOperationTypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public Guid operation { get; set; }
         [DisplayName("Примечание"), Description(""), Category("")]
         public string notes { get; set; }
     }
@@ -168,8 +168,9 @@ namespace СartridgeMaster
         {
             svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
             if (svc != null)
-            {                
-                StateSelect frm = new StateSelect(context.Instance);
+            {
+                OperationTypeDetails opd = context.Instance as OperationTypeDetails;
+                StateSelect frm = new StateSelect(opd.object_type);
                 frm.ValueSelected += frm_ValueSelected;
                 svc.DropDownControl(frm);
                 if (frm.Selected != null)
@@ -184,6 +185,154 @@ namespace СartridgeMaster
         {
             if(svc != null)
                 svc.CloseDropDown();
+        }
+    }
+
+    public class PrinterStateEditor : UITypeEditor
+    {
+        private IWindowsFormsEditorService svc;
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.DropDown;
+        }
+
+        public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+            if (svc != null)
+            {
+                StateSelect frm = new StateSelect(ObjectType.Printer);
+                frm.ValueSelected += frm_ValueSelected;
+                svc.DropDownControl(frm);
+                if (frm.Selected != null)
+                    value = frm.Selected.id;
+                else
+                    value = Guid.Empty;
+            }
+            return value;
+        }
+
+        void frm_ValueSelected(object sender, EventArgs e)
+        {
+            if (svc != null)
+                svc.CloseDropDown();
+        }
+    }
+
+    public class CartridgeStateEditor : UITypeEditor
+    {
+        private IWindowsFormsEditorService svc;
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.DropDown;
+        }
+
+        public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+            if (svc != null)
+            {
+                StateSelect frm = new StateSelect(ObjectType.Cartridge);
+                frm.ValueSelected += frm_ValueSelected;
+                svc.DropDownControl(frm);
+                if (frm.Selected != null)
+                    value = frm.Selected.id;
+                else
+                    value = Guid.Empty;
+            }
+            return value;
+        }
+
+        void frm_ValueSelected(object sender, EventArgs e)
+        {
+            if (svc != null)
+                svc.CloseDropDown();
+        }
+    }
+
+    public class PrinterOperationTypeEditor : UITypeEditor
+    {
+        private IWindowsFormsEditorService svc;
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.DropDown;
+        }
+
+        public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+            if (svc != null)
+            {
+                OperationSelect frm = new OperationSelect(ObjectType.Printer);
+                frm.ValueSelected += frm_ValueSelected;
+                svc.DropDownControl(frm);
+                if (frm.Selected != null)
+                    value = frm.Selected.id;
+                else
+                    value = Guid.Empty;
+            }
+            return value;
+        }
+
+        void frm_ValueSelected(object sender, EventArgs e)
+        {
+            if (svc != null)
+                svc.CloseDropDown();
+        }
+    }
+
+    public class CartridgeOperationTypeEditor : UITypeEditor
+    {
+        private IWindowsFormsEditorService svc;
+        public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+        {
+            return UITypeEditorEditStyle.DropDown;
+        }
+
+        public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            svc = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+            if (svc != null)
+            {
+                OperationSelect frm = new OperationSelect(ObjectType.Cartridge);
+                frm.ValueSelected += frm_ValueSelected;
+                svc.DropDownControl(frm);
+                if (frm.Selected != null)
+                    value = frm.Selected.id;
+                else
+                    value = Guid.Empty;
+            }
+            return value;
+        }
+
+        void frm_ValueSelected(object sender, EventArgs e)
+        {
+            if (svc != null)
+                svc.CloseDropDown();
+        }
+    }
+
+    public class OperationTypeConverter : TypeConverter
+    {
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            return false;
+        }
+
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+        {
+            if (destinationType == typeof(string))
+            {
+                Guid id = (Guid)value;
+                if (id != Guid.Empty)
+                {
+                    operation_types ot = Runtime.DB.operation_types.SingleOrDefault(x => x.id == id);
+                    if (ot != null)
+                        return ot.name;
+                }
+                return "";
+            }
+            return "";
         }
     }
 }

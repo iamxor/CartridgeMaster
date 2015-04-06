@@ -133,7 +133,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(400, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Расположения ▼";
+            this.label1.Text = "Расположения";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tvLocations
@@ -220,7 +220,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(570, 26);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Принтеры ▼";
+            this.label5.Text = "Принтеры";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvPrinters
@@ -305,7 +305,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(366, 26);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Операции с принтерами ▼";
+            this.label4.Text = "Операции с принтерами";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvPrinterOps
@@ -338,12 +338,12 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "Операция";
-            this.columnHeader9.Width = 100;
+            this.columnHeader9.Width = 150;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Примечание";
-            this.columnHeader13.Width = 100;
+            this.columnHeader13.Width = 250;
             // 
             // cxPrinterOps
             // 
@@ -396,7 +396,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(388, 26);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Картриджи ▼";
+            this.label3.Text = "Картриджи";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvCartridges
@@ -467,7 +467,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(548, 26);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Операции с картриджами ▼";
+            this.label2.Text = "Операции с картриджами";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvCartridgeOps
@@ -500,12 +500,12 @@
             // columnHeader11
             // 
             this.columnHeader11.Text = "Операция";
-            this.columnHeader11.Width = 100;
+            this.columnHeader11.Width = 150;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Примечание";
-            this.columnHeader14.Width = 100;
+            this.columnHeader14.Width = 250;
             // 
             // cxCartridgeOps
             // 

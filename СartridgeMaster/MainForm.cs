@@ -36,6 +36,7 @@ namespace СartridgeMaster
 
         public void FillPrinters()
         {
+            List<state_types> stypes = Runtime.DB.state_types.ToList();
             lvPrinters.BeginUpdate();
             lvPrinters.Items.Clear();
             if (tvLocations.SelectedNode != null)
@@ -48,7 +49,11 @@ namespace СartridgeMaster
                     item.SubItems.Add(pr.model);
                     item.SubItems.Add(pr.number);
                     item.SubItems.Add(pr.pages_count.Value.ToString());
-                    item.SubItems.Add(pr.state.Value.ToString());
+                    state_types st = stypes.SingleOrDefault(x => x.id == pr.state.Value);
+                    string st_str = "";
+                    if (st != null)
+                        st_str = st.name;
+                    item.SubItems.Add(st_str);
                     item.Tag = pr;
                     lvPrinters.Items.Add(item);
                 }                
@@ -58,6 +63,7 @@ namespace СartridgeMaster
 
         public void FillCartridges()
         {
+            List<state_types> stypes = Runtime.DB.state_types.ToList();
             lvCartridges.BeginUpdate();
             lvCartridges.Items.Clear();
             if (lvPrinters.SelectedItems.Count > 0)
@@ -68,7 +74,11 @@ namespace СartridgeMaster
                     ListViewItem item = new ListViewItem();
                     item.Text = cr.number;
                     item.SubItems.Add(cr.model);
-                    item.SubItems.Add(cr.state.ToString());
+                    state_types st = stypes.SingleOrDefault(x => x.id == pr.state.Value);
+                    string st_str = "";
+                    if (st != null)
+                        st_str = st.name;
+                    item.SubItems.Add(st_str);
                     item.Tag = cr;
                     lvCartridges.Items.Add(item);
                 }                
@@ -78,6 +88,7 @@ namespace СartridgeMaster
 
         public void FillCartridgeOperations()
         {
+            List<operation_types> otypes = Runtime.DB.operation_types.ToList();
             lvCartridgeOps.BeginUpdate();
             lvCartridgeOps.Items.Clear();
             if (lvCartridges.SelectedItems.Count > 0)
@@ -87,7 +98,11 @@ namespace СartridgeMaster
                 {
                     ListViewItem item = new ListViewItem();
                     item.Text = op.datetime.Value.ToShortDateString();
-                    item.SubItems.Add(op.operation.Value.ToString());
+                    operation_types ot = otypes.SingleOrDefault(x => x.id == op.operation.Value);
+                    string op_str = "";
+                    if (ot != null)
+                        op_str = ot.name;
+                    item.SubItems.Add(op_str);
                     item.SubItems.Add(op.notes);
                     item.Tag = op;
                     lvCartridgeOps.Items.Add(item);
@@ -98,6 +113,7 @@ namespace СartridgeMaster
 
         public void FillPrinterOperations()
         {
+            List<operation_types> otypes = Runtime.DB.operation_types.ToList();
             lvPrinterOps.BeginUpdate();
             lvPrinterOps.Items.Clear();
             if (lvPrinters.SelectedItems.Count > 0)
@@ -107,7 +123,11 @@ namespace СartridgeMaster
                 {
                     ListViewItem item = new ListViewItem();
                     item.Text = op.datetime.Value.ToShortDateString();
-                    item.SubItems.Add(op.operation.Value.ToString());
+                    operation_types ot = otypes.SingleOrDefault(x => x.id == op.operation.Value);
+                    string op_str = "";
+                    if (ot != null)
+                        op_str = ot.name;
+                    item.SubItems.Add(op_str);
                     item.SubItems.Add(op.notes);
                     item.Tag = op;
                     lvPrinterOps.Items.Add(item);
@@ -149,7 +169,7 @@ namespace СartridgeMaster
                 pr.model = "";
                 pr.number = "";
                 pr.pages_count = 0;
-                pr.state = 0;
+                pr.state = Guid.Empty;
                 PrinterForm frm = new PrinterForm(true, pr);
                 frm.ShowDialog();
                 FillPrinters();
@@ -212,7 +232,7 @@ namespace СartridgeMaster
                 op.id = Guid.NewGuid();
                 op.object_id = pr.id;
                 op.datetime = DateTime.Now;
-                op.operation = 0;
+                op.operation = Guid.Empty;
                 op.notes = "";
                 PrinterOperationForm frm = new PrinterOperationForm(true, op);
                 frm.ShowDialog();
@@ -276,7 +296,7 @@ namespace СartridgeMaster
                 cr.printer_id = pr.id;
                 cr.number = "";
                 cr.model = "";                
-                cr.state = 0;
+                cr.state = Guid.Empty;
                 CartridgeForm frm = new CartridgeForm(true, cr);
                 frm.ShowDialog();
                 FillCartridges();
@@ -292,7 +312,7 @@ namespace СartridgeMaster
                 op.id = Guid.NewGuid();
                 op.object_id = cr.id;
                 op.datetime = DateTime.Now;
-                op.operation = 0;
+                op.operation = Guid.Empty;
                 op.notes = "";
                 CartridgeOperationForm frm = new CartridgeOperationForm(true, op);
                 frm.ShowDialog();

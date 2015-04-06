@@ -159,6 +159,12 @@
     <Compile Include="operations.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OperationSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OperationSelect.Designer.cs">
+      <DependentUpon>OperationSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperationTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogonForm.resx">
       <DependentUpon>LogonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationSelect.resx">
+      <DependentUpon>OperationSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationTypeForm.resx">
       <DependentUpon>OperationTypeForm.cs</DependentUpon>

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Принтер");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Картридж");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Принтер");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Картридж");
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvObjectType = new System.Windows.Forms.TreeView();
             this.lvStates = new System.Windows.Forms.ListView();
@@ -66,17 +66,18 @@
             // tvObjectType
             // 
             this.tvObjectType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvObjectType.HideSelection = false;
             this.tvObjectType.Location = new System.Drawing.Point(0, 0);
             this.tvObjectType.Name = "tvObjectType";
-            treeNode5.Name = "Node0";
-            treeNode5.Tag = "0";
-            treeNode5.Text = "Принтер";
-            treeNode6.Name = "Node1";
-            treeNode6.Tag = "1";
-            treeNode6.Text = "Картридж";
+            treeNode1.Name = "Node0";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "Принтер";
+            treeNode2.Name = "Node1";
+            treeNode2.Tag = "1";
+            treeNode2.Text = "Картридж";
             this.tvObjectType.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
+            treeNode1,
+            treeNode2});
             this.tvObjectType.Size = new System.Drawing.Size(235, 651);
             this.tvObjectType.TabIndex = 0;
             this.tvObjectType.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObjectType_AfterSelect);
@@ -114,7 +115,7 @@
             this.добавитьСтатусToolStripMenuItem,
             this.удалитьСтатусToolStripMenuItem});
             this.cxStates.Name = "cxStates";
-            this.cxStates.Size = new System.Drawing.Size(164, 70);
+            this.cxStates.Size = new System.Drawing.Size(164, 48);
             // 
             // добавитьСтатусToolStripMenuItem
             // 

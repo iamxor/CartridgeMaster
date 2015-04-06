@@ -15,18 +15,16 @@ namespace СartridgeMaster
     public partial class StateSelect : UserControl
     {
         public event ValueSelectedHandler ValueSelected;
-        OperationTypeDetails _opd;
         public state_types Selected = null;
-        public StateSelect(object ob)
+        public StateSelect(ObjectType otype)
         {
-            _opd = ob as OperationTypeDetails;
             InitializeComponent();
             listBox1.BeginUpdate();
             listBox1.Items.Clear();
             StateItem si = new StateItem();
             si.State = null;
             listBox1.Items.Add(si);
-            foreach(state_types st in Runtime.DB.state_types.Where(x => x.object_type.Value == (int)_opd.object_type))
+            foreach(state_types st in Runtime.DB.state_types.Where(x => x.object_type.Value == (int)otype))
             {
                 si = new StateItem();
                 si.State = st;

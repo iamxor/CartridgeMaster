@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Принтер");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Картридж");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Принтер");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Картридж");
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvObjectType = new System.Windows.Forms.TreeView();
             this.lvOperationTypes = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cxOperationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьТипОперацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьТипОперацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,17 +67,18 @@
             // tvObjectType
             // 
             this.tvObjectType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvObjectType.HideSelection = false;
             this.tvObjectType.Location = new System.Drawing.Point(0, 0);
             this.tvObjectType.Name = "tvObjectType";
-            treeNode3.Name = "Node0";
-            treeNode3.Tag = "0";
-            treeNode3.Text = "Принтер";
-            treeNode4.Name = "Node1";
-            treeNode4.Tag = "1";
-            treeNode4.Text = "Картридж";
+            treeNode1.Name = "Node0";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "Принтер";
+            treeNode2.Name = "Node1";
+            treeNode2.Tag = "1";
+            treeNode2.Text = "Картридж";
             this.tvObjectType.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode1,
+            treeNode2});
             this.tvObjectType.Size = new System.Drawing.Size(237, 610);
             this.tvObjectType.TabIndex = 0;
             this.tvObjectType.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObjectType_AfterSelect);
@@ -85,7 +87,8 @@
             // 
             this.lvOperationTypes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader1});
             this.lvOperationTypes.ContextMenuStrip = this.cxOperationTypes;
             this.lvOperationTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvOperationTypes.FullRowSelect = true;
@@ -107,6 +110,11 @@
             // 
             this.columnHeader3.Text = "Наименование";
             this.columnHeader3.Width = 150;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Статус";
+            this.columnHeader1.Width = 150;
             // 
             // cxOperationTypes
             // 
@@ -158,5 +166,6 @@
         private System.Windows.Forms.ContextMenuStrip cxOperationTypes;
         private System.Windows.Forms.ToolStripMenuItem добавитьТипОперацииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьТипОперацииToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

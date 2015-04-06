@@ -20,6 +20,6 @@ namespace СartridgeMaster
         public string model { get; set; }
         public Nullable<int> pages_count { get; set; }
         public string number { get; set; }
-        public Nullable<int> state { get; set; }
+        public Nullable<System.Guid> state { get; set; }
     }
 }

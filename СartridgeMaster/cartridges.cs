@@ -18,6 +18,6 @@ namespace СartridgeMaster
         public Nullable<System.Guid> printer_id { get; set; }
         public string number { get; set; }
         public string model { get; set; }
-        public Nullable<int> state { get; set; }
+        public Nullable<System.Guid> state { get; set; }
     }
 }
